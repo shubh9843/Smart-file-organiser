@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart File Sorter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Smart File Sorter</h1>
+
+<input type="file" id="fileInput">
+<button onclick="uploadFile()">Upload</button>
+
+<select id="sort" onchange="loadFiles()">
+  <option value="">Sort By</option>
+  <option value="originalName">Name</option>
+  <option value="fileType">Type</option>
+  <option value="uploadDate">Date</option>
+</select>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Size (KB)</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="fileTable"></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
