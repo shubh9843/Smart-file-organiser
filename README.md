@@ -37,7 +37,7 @@ A powerful, automated file management system built with the MERN stack (MongoDB,
     Create a `.env` file in the `backend` directory and add your MongoDB connection string and port:
     ```env
     PORT=5000
-    MONGO_URI=your_mongodb_connection_string
+    MONGODB_URI=your_mongodb_connection_string
     ```
 
 4.  **Run the Application**
