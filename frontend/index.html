@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart File Organizer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Smart File Organizer</h1>
+      <p>Automated file management with real-time audit trails</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('dashboard')">Dashboard</button>
+      <button class="tab-btn" onclick="switchTab('folders')">Folders</button>
+      <button class="tab-btn" onclick="switchTab('rules')">Rules</button>
+      <button class="tab-btn" onclick="switchTab('logs')">Audit Trail</button>
+    </div>
+
+    <!-- DASHBOARD TAB -->
+    <div id="dashboard" class="tab-content active">
+      <div class="card">
+        <h2>Manual Upload</h2>
+        <div class="upload-area">
+          <input type="file" id="fileInput">
+          <button class="primary-btn" onclick="uploadFile()">Upload File</button>
+          <button class="secondary-btn" onclick="reorganizeFiles()" style="margin-left: 10px;">Run Smart Sort</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Organized Files</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="fileTable">
+              <!-- Files populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOLDERS TAB -->
+    <div id="folders" class="tab-content">
+      <div class="card">
+        <h2>Your Folders</h2>
+        <div id="folderGrid" class="folder-grid">
+          <!-- Folder cards populated here -->
+        </div>
+
+        <!-- Folder Contents View (Hidden by default) -->
+        <div id="folderContents" style="display: none;">
+          <button class="secondary-btn" onclick="closeFolder()" style="margin-bottom: 15px;">&larr; Back to
+            Folders</button>
+          <h3 id="folderTitle">FolderName</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Size</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="folderFileTable">
+                <!-- Files populated here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULES TAB -->
+    <div id="rules" class="tab-content">
+      <div class="card">
+        <h2>Add New Rule</h2>
+        <div class="form-group">
+          <input type="text" id="ruleName" placeholder="Rule Name (e.g., Images)">
+          <input type="text" id="ruleExt" placeholder="Extensions (jpg,png)">
+          <input type="text" id="targetFolder" placeholder="Target Folder (Images)">
+          <button class="primary-btn" onclick="addRule()">Save Rule</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Active Rules</h2>
+        <ul id="ruleList" class="rule-list">
+          <!-- Rules populated here -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- LOGS TAB -->
+    <div id="logs" class="tab-content">
+      <div class="card">
+        <div class="log-header">
+          <h2>System Audit Trail</h2>
+          <button class="secondary-btn" onclick="loadLogs()">Refresh</button>
+        </div>
+        <div class="log-container" id="logContainer">
+          <!-- Logs populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW MODAL -->
+    <div id="previewModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closePreview()">&times;</span>
+        <h3 id="previewTitle">File Preview</h3>
+        <div id="previewBody" class="preview-body">
+          <!-- Content injected here -->
+        </div>
+        <div class="preview-footer">
+          <a id="downloadBtn" href="#" class="primary-btn" download>Download File</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
