@@ -31,6 +31,8 @@ A powerful, automated file management system built with the MERN stack (MongoDB,
     ```bash
     cd backend
     npm install
+    npm install mongodb
+    npm install mongodb-memory-server
     ```
 
 3.  **Configure Environment Variables**

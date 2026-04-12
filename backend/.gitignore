@@ -1,15 +1,55 @@
-# Node
-node_modules/
+# # Node
+# node_modules/
+
+# # Environment
+# .env
+
+# # Uploads / runtime files
+# uploads/
+
+# # Logs
+# *.log
+
+# # OS files
+# .DS_Store
+# Thumbs.db
+
+
 
 # Environment
 .env
+.env.*
 
-# Uploads / runtime files
-uploads/
+# Dependencies
+node_modules/
 
 # Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+dist/
+build/
+.cache/
+
+# Uploads (your project specific)
+uploads/
+
+# Temp
+tmp/
+temp/
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Coverage
+coverage/
