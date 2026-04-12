@@ -7,13 +7,20 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
+
+const uploadDir = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
 const fileRoutes = require("./routes/fileRoutes");
 console.log("Resolved fileRoutes:", require.resolve("./routes/fileRoutes"));
 const ruleRoutes = require("./routes/ruleRoutes");
 const auditRoutes = require("./routes/auditRoutes");
 const { startWatcher } = require("./services/watcher");
 const { seedDefaultRules } = require("./services/ruleSeeder");
-
+const { MongoMemoryServer } = require('mongodb-memory-server');
 const app = express();
 
 app.use(cors());
