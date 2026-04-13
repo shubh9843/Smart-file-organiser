@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "/api";
 
 function getRelativePath(fullPath) {
   // Check if it's in organized
@@ -122,7 +122,7 @@ function openFolder(folderName) {
             <button onclick="previewFile('${f._id}')" title="Preview" style="background:none; border:none; cursor:pointer; font-size:1.2rem; margin-right:10px;">
               👁️
             </button>
-            <a href="http://localhost:5000/${getRelativePath(f.filePath)}" download title="Download" style="text-decoration:none; margin-right:10px; font-size:1.2rem;">
+            <a href="/${getRelativePath(f.filePath)}" download title="Download" style="text-decoration:none; margin-right:10px; font-size:1.2rem;">
               ⬇️
             </a>
             <button onclick="deleteFile('${f._id}')" style="background:none; border:none; cursor:pointer; font-size:1.2rem;" title="Delete">
@@ -176,7 +176,7 @@ function loadFiles() {
             <button onclick="previewFile('${f._id}')" title="Preview" style="background:none; border:none; cursor:pointer; font-size:1.2rem; margin-right:10px;">
               👁️
             </button>
-            <a href="http://localhost:5000/${getRelativePath(f.filePath)}" download title="Download" style="text-decoration:none; margin-right:10px; font-size:1.2rem;">
+            <a href="/${getRelativePath(f.filePath)}" download title="Download" style="text-decoration:none; margin-right:10px; font-size:1.2rem;">
               ⬇️
             </a>
             <button onclick="deleteFile('${f._id}')" style="background:none; border:none; cursor:pointer; font-size:1.2rem;" title="Delete">
@@ -309,7 +309,7 @@ function previewFile(fileId) {
   const downloadBtn = document.getElementById("downloadBtn");
 
   const relPath = getRelativePath(file.filePath);
-  const fullUrl = `http://localhost:5000/${relPath}`;
+  const fullUrl = `/${relPath}`;
 
   title.textContent = file.originalName || file.filePath.split(/[\\/]/).pop();
   downloadBtn.href = fullUrl;
