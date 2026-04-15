@@ -58,6 +58,17 @@ router.post("/reorganize", async (req, res) => {
   }
 });
 
+/* Delete ALL files */
+router.delete("/delete-all", async (req, res) => {
+  try {
+    const result = await File.deleteMany({});
+    res.json({ message: "All files deleted", count: result.deletedCount });
+  } catch (err) {
+    console.error("Delete all error:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 /* Delete file */
 router.delete("/:id", async (req, res) => {
   await File.findByIdAndDelete(req.params.id);

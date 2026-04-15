@@ -1,3 +1,4 @@
+/* ── Light Mode (default) ── */
 :root {
   --primary: #6366f1;
   /* Indigo */
@@ -9,6 +10,119 @@
   --border: #e5e7eb;
   --danger: #ef4444;
   --success: #10b981;
+  --th-bg: #f9fafb;
+  --tab-bg: white;
+  --tab-hover-bg: #eef2ff;
+  --folder-bg: #f1f5f9;
+  --folder-hover-bg: white;
+  --input-bg: white;
+  --modal-bg: #fefefe;
+  --preview-title-bg: #f9fafb;
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #cbd5e1;
+  --log-bg: #111827;
+  --log-border: #1f2937;
+}
+
+/* ── Dark Mode ── */
+[data-theme="dark"] {
+  --primary: #818cf8;
+  --primary-hover: #6366f1;
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --danger: #f87171;
+  --success: #34d399;
+  --th-bg: #1e293b;
+  --tab-bg: #1e293b;
+  --tab-hover-bg: #334155;
+  --folder-bg: #1e293b;
+  --folder-hover-bg: #334155;
+  --input-bg: #1e293b;
+  --modal-bg: #1e293b;
+  --preview-title-bg: #1e293b;
+  --scrollbar-track: #1e293b;
+  --scrollbar-thumb: #475569;
+  --log-bg: #0f172a;
+  --log-border: #334155;
+}
+
+/* ── Theme Toggle Button ── */
+.theme-toggle {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  width: 48px;
+  height: 48px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  border-color: var(--primary);
+}
+
+/* ── Header Row ── */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.header-row > div {
+  text-align: center;
+  flex: 1;
+}
+
+/* ── Card Header Row ── */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header-row h2 {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* ── Danger / Remove All Button ── */
+.danger-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.danger-btn:hover {
+  background: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+  transform: translateY(-1px);
+}
+
+.danger-btn:active {
+  transform: translateY(0);
 }
 
 body {
@@ -59,7 +173,7 @@ header p {
 .tab-btn {
   padding: 10px 24px;
   border: none;
-  background: white;
+  background: var(--tab-bg);
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
@@ -71,7 +185,7 @@ header p {
 
 .tab-btn:hover {
   color: var(--primary);
-  background: #eef2ff;
+  background: var(--tab-hover-bg);
 }
 
 .tab-btn.active {
@@ -136,7 +250,7 @@ header p {
 }
 
 .secondary-btn {
-  background: white;
+  background: var(--card);
   color: var(--text);
   border: 1px solid var(--border);
   padding: 10px 20px;
@@ -148,7 +262,7 @@ header p {
 
 .secondary-btn:hover {
   border-color: var(--text-muted);
-  background: #f9fafb;
+  background: var(--tab-hover-bg);
 }
 
 /* Forms */
@@ -167,6 +281,8 @@ input[type="file"] {
   flex: 1;
   font-family: inherit;
   transition: border-color 0.2s;
+  background: var(--input-bg);
+  color: var(--text);
 }
 
 input:focus {
@@ -195,7 +311,7 @@ th {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: #f9fafb;
+  background: var(--th-bg);
 }
 
 th:first-child {
@@ -234,7 +350,7 @@ td {
 }
 
 .folder-card {
-  background: white;
+  background: var(--folder-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 25px;
@@ -249,6 +365,7 @@ td {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-color: var(--primary);
+  background: var(--folder-hover-bg);
 }
 
 .folder-icon {
@@ -273,7 +390,7 @@ td {
 
 /* Logs */
 .log-container {
-  background: #111827;
+  background: var(--log-bg);
   color: #10b981;
   padding: 20px;
   border-radius: 8px;
@@ -285,7 +402,7 @@ td {
 
 .log-entry {
   padding: 4px 0;
-  border-bottom: 1px solid #1f2937;
+  border-bottom: 1px solid var(--log-border);
 }
 
 .log-time {
@@ -299,11 +416,11 @@ td {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
@@ -533,10 +650,10 @@ th {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--modal-bg);
   margin: 5% auto;
   padding: 0;
-  border: 1px solid #888;
+  border: 1px solid var(--border);
   width: 80%;
   max-width: 900px;
   border-radius: 12px;
@@ -571,8 +688,9 @@ th {
   margin: 0;
   padding: 20px;
   border-bottom: 1px solid var(--border);
-  background: #f9fafb;
+  background: var(--preview-title-bg);
   font-size: 1.25rem;
+  color: var(--text);
 }
 
 .preview-body {
@@ -589,7 +707,7 @@ th {
 .preview-footer {
   padding: 15px 20px;
   border-top: 1px solid var(--border);
-  background: #f9fafb;
+  background: var(--preview-title-bg);
   text-align: right;
 }
 

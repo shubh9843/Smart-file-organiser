@@ -287,6 +287,52 @@ function reorganizeFiles() {
     });
 }
 
+// Delete ALL files
+function deleteAllFiles() {
+  if (!confirm("⚠️ Are you sure you want to delete ALL files? This cannot be undone!")) return;
+
+  fetch(`${API_BASE}/files/delete-all`, { method: "DELETE" })
+    .then(res => res.json())
+    .then(data => {
+      alert(`All files removed! (${data.count} files deleted)`);
+      loadFiles();
+      loadFolders();
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Failed to delete all files: " + err.message);
+    });
+}
+
+// Dark / Light Mode Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById("themeIcon");
+
+  if (html.getAttribute("data-theme") === "dark") {
+    html.removeAttribute("data-theme");
+    icon.textContent = "🌙";
+    localStorage.setItem("theme", "light");
+  } else {
+    html.setAttribute("data-theme", "dark");
+    icon.textContent = "☀️";
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+// Load saved theme on startup
+(function initTheme() {
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    // Icon will be set once DOM is ready
+    document.addEventListener("DOMContentLoaded", () => {
+      const icon = document.getElementById("themeIcon");
+      if (icon) icon.textContent = "☀️";
+    });
+  }
+})();
+
 // Init
 loadFiles();
 // Auto refresh logs every 5s if on logs tab

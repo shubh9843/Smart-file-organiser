@@ -13,8 +13,15 @@
 
   <div class="container">
     <header>
-      <h1>Smart File Organizer</h1>
-      <p>Automated file management with real-time audit trails</p>
+      <div class="header-row">
+        <div>
+          <h1>Smart File Organizer</h1>
+          <p>Automated file management with real-time audit trails</p>
+        </div>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
     </header>
 
     <div class="tabs">
@@ -36,7 +43,10 @@
       </div>
 
       <div class="card">
-        <h2>Organized Files</h2>
+        <div class="card-header-row">
+          <h2>Organized Files</h2>
+          <button class="danger-btn" onclick="deleteAllFiles()" id="removeAllBtn">🗑️ Remove All Files</button>
+        </div>
         <div class="table-container">
           <table>
             <thead>
